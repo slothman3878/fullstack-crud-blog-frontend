@@ -18,7 +18,7 @@ const App=()=>{
   const dispatch = useAppDispatch();
 
   const [httpLink,] = useState(createHttpLink({
-    uri: 'https://slothmanxyz-v2.herokuapp.com/graphql',
+    uri: 'http://localhost:5000/graphql',
     credentials: 'include' //'same-origin'
   }))
 

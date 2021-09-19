@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://slothmanxyz.github.io/slothman.xyz.v2.frontend",
+  "homepage": "http://slothmanxyz.github.io/frontend.auth.test",
   "devDependencies": {
     "@apollo/rover": "^0.2.0",
     "@types/react-syntax-highlighter": "^13.5.2",

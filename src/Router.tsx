@@ -1,7 +1,10 @@
 import React, {
   useEffect,
 } from 'react';
-import { BrowserRouter, Route, Switch, Redirect, HashRouter } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect, HashRouter, Link } from "react-router-dom";
+import {
+  Button,
+} from 'react-bootstrap';
 import { 
   useQuery,
 } from '@apollo/client';
@@ -32,7 +35,10 @@ const Router=()=>{
 
   if(data||error)
     return(
-      <>{auth.user}</>
+      <BrowserRouter>
+      <div>{auth.user.email}
+      <Button href="http://localhost:5000/auth/google">auth</Button></div>
+      </BrowserRouter>
     )
   return null;
 }
