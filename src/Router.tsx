@@ -36,8 +36,9 @@ const Router=()=>{
   if(data||error)
     return(
       <BrowserRouter>
-      <div>{auth.user.email}
-      <Button href="http://localhost:5000/auth/google">auth</Button></div>
+      <div>
+      {auth.user&&auth.user.email&&<>auth.user.email</>}
+      <Button href="https://slothmanxyz-v2.herokuapp.com/auth/google">auth</Button></div>
       </BrowserRouter>
     )
   return null;
