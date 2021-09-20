@@ -14,6 +14,8 @@ export interface Posts_posts {
   id: string;
   slug: string;
   title: string;
+  createdAt: any;
+  updatedAt: any;
 }
 
 export interface Posts {
@@ -24,4 +26,5 @@ export interface PostsVariables {
   input: PostsQueryInput;
   limit?: number | null;
   offset?: number | null;
+  order?: string | null;
 }

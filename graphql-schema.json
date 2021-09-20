@@ -65,6 +65,18 @@
             "description": null,
             "args": [
               {
+                "name": "order",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "\"updatedAt\"",
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "offset",
                 "description": null,
                 "type": {

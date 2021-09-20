@@ -125,8 +125,8 @@ const DraftForm = ({body,setBody,title,setTitle,type,setType,slug,setSlug, ...fo
           <Form.Group className="mb-3" controlId="formPostType">
             <Form.Label>Post Type</Form.Label>
             <Form.Select aria-label="select-parent-type" value={ type}
-              isValid={ type!==''}
-              isInvalid={ type===''}
+              isValid={type!==''}
+              isInvalid={type===''}
               onChange={(e: any)=>{setType(e.target.value)}}>
               <option disabled value={""}>Choose a Type</option>
               {Types.data&&Types.data.types.map((t:{id: string, name: string})=>{

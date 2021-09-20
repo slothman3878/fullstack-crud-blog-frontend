@@ -11,14 +11,14 @@ import {
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import {useAppDispatch} from './hooks';
-
+import {BACKEND_URL} from './common/constants';
 import Router from './Router';
 
 const App=()=>{
   const dispatch = useAppDispatch();
 
   const [httpLink,] = useState(createHttpLink({
-    uri: 'http://localhost:5000/graphql',
+    uri: `${BACKEND_URL}/graphql`,
     credentials: 'include' //'same-origin'
   }))
 

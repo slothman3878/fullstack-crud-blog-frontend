@@ -22,11 +22,13 @@ export const POST = gql`
 `
 
 export const POSTS = gql`
-  query Posts($input: PostsQueryInput!, $limit: Float, $offset: Float){
-    posts(input: $input, limit: $limit, offset: $offset) {
+  query Posts($input: PostsQueryInput!, $limit: Float, $offset: Float, $order: String){
+    posts(input: $input, limit: $limit, offset: $offset, order: $order) {
       id
       slug
       title
+      createdAt
+      updatedAt
     }
   }
 `

@@ -17,6 +17,8 @@ import PaginatedDrafts from './components/pages/Drafts';
 import PaginatedPosts from './components/pages/Posts';
 import EditPost from './components/pages/EditPost';
 
+import {BACKEND_URL} from './common/constants';
+
 const Router=()=>{
   const dispatch = useAppDispatch();
 
@@ -25,7 +27,6 @@ const Router=()=>{
     pollInterval: 1000*60*5,
     // Runs on first query success
     onCompleted: (data)=>{
-      console.log(data.me);
       dispatch({
         type: 'SET_CURRENT_USER',
         payload: data.me
@@ -36,7 +37,7 @@ const Router=()=>{
   return(
     <Switch>
       <Route exact path="/" component={Home}/>
-      <Route exact path="/auth" component={()=>{window.location.href='http://localhost:5000/auth/google'; return null}}/>
+      <Route exact path="/auth" component={()=>{window.location.href=`${BACKEND_URL}/auth/google`; return null}}/>
       <Route path="/posts/:typeName/:page?/" component={PaginatedPosts}/>
       <Route path="/post/:slug" component={Post}/>
       <ProtectedRoute path="/draft/:id" component={Draft}/>
