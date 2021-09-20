@@ -1,38 +1,27 @@
 import {
-  useEffect,
   useState,
 } from "react";
 import { 
   Container, 
-  Button,
-  Row,
-  Col,
 } from "react-bootstrap";
 import {
-  Redirect,
   useParams,
-  useHistory,
   Link,
 } from 'react-router-dom';
 import {
   useQuery
 } from '@apollo/client';
 
-import {useAppDispatch, useAppSelector} from '../../hooks';
 import {POSTS} from '../../graphql/queries/post.query';
 import {Posts_posts} from '../../graphql/queries/__generated__/Posts';
 import {TYPE} from '../../graphql/queries/type.query';
-import {Type, Type_type} from '../../graphql/queries/__generated__/Type';
+import {Type} from '../../graphql/queries/__generated__/Type';
 import Navi from '../NavigationBar';
 import NotFound from './NotFound';
 
 const PaginatedPosts=()=>{
-  const auth = useAppSelector((state)=>state.auth)
-
   const {typeName} = useParams<{typeName: string}>()
   const {page} = useParams<{page: string}>();
-
-  console.log(Number(page));
 
   const [type, setType] = useState('');
 
@@ -47,7 +36,7 @@ const PaginatedPosts=()=>{
     }
   })
 
-  const {loading, data} = useQuery(POSTS, {
+  const {data} = useQuery(POSTS, {
     variables: {
       input: {
         type
@@ -56,13 +45,16 @@ const PaginatedPosts=()=>{
     },
   })
 
-  if(Type.data&&data)
+  if(Type.data&&Type.data.type&&data)
     return(<>
       <Navi/>
       <Container style = {{marginTop: "50px"}}>
       <div className="title">
-        <h1>Posts</h1>
-      </div> 
+        <h1>{typeName}</h1>
+      </div>
+      <div className="desc">
+        <h3>{Type.data.type.desc}</h3>
+      </div>
       {data.posts.map((post: Posts_posts)=>
         <Container key={post.id} style={{margin: '20px'}}>
           <Link to={`/post/${post.slug}`}><h2>{post.title}</h2></Link>
@@ -70,6 +62,8 @@ const PaginatedPosts=()=>{
       )}
       </Container>
     </>)
+  if(Type.data&&!Type.data.type)
+    return <NotFound/>
   return null;
 }
 

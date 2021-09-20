@@ -3,11 +3,6 @@ import {
   Container,
   Row,
 } from 'react-bootstrap';
-import {
-  Link,
-  Redirect,
-} from 'react-router-dom';
-import {useAppSelector} from '../../hooks';
 import Navi from '../NavigationBar';
 import CreateType from '../forms/CreateType';
 

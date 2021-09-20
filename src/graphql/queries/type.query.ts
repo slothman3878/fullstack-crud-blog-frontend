@@ -5,6 +5,7 @@ export const TYPE = gql`
     type(input: $typeInput) {
       id
       name
+      desc
       suptype {
         id
         name

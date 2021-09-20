@@ -36,8 +36,8 @@ const Router=()=>{
   return(
     <Switch>
       <Route exact path="/" component={Home}/>
-      <Route exact path="/auth" component={()=>{window.location.href='https://slothmanxyz-v2.herokuapp.com/auth/google'; return null}}/>
-      <Route path="/posts/:type/:page?/" component={PaginatedPosts}/>
+      <Route exact path="/auth" component={()=>{window.location.href='http://localhost:5000/auth/google'; return null}}/>
+      <Route path="/posts/:typeName/:page?/" component={PaginatedPosts}/>
       <Route path="/post/:slug" component={Post}/>
       <ProtectedRoute path="/draft/:id" component={Draft}/>
       <ProtectedRoute path="/drafts/:page?/" component={PaginatedDrafts}/>

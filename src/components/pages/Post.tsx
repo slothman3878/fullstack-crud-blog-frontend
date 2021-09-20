@@ -1,5 +1,4 @@
 import {
-  useEffect,
   useState,
 } from "react";
 import { 
@@ -9,7 +8,6 @@ import {
   Col,
 } from "react-bootstrap";
 import {
-  Redirect,
   useParams,
   useHistory,
 } from 'react-router-dom';
@@ -17,7 +15,7 @@ import {
   useQuery
 } from '@apollo/client';
 
-import {useAppDispatch, useAppSelector} from '../../hooks';
+import {useAppSelector} from '../../hooks';
 import {POST} from '../../graphql/queries/post.query';
 import PostRender from '../PostRender';
 import Navi from '../NavigationBar';
@@ -31,7 +29,7 @@ const Post=()=>{
   const [body, setBody] = useState<string>('');
   const [title, setTitle] = useState<string>('');
 
-  const {data, loading, error} = useQuery(POST, {
+  const {data, loading} = useQuery(POST, {
     variables: {
       input: {
         slug: slug

@@ -1,14 +1,6 @@
-import {
-  useEffect,
-  useState,
-} from "react";
 import { 
   Container, 
-  Button,
 } from "react-bootstrap";
-import {
-  Redirect
-} from 'react-router-dom';
 
 import Navi from '../NavigationBar';
 

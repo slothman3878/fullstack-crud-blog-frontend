@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useHistory} from 'react-router-dom';
 import { 
   Navbar, 
   Nav, 
@@ -6,13 +7,12 @@ import {
 } from "react-bootstrap";
 import {
   Container,
-  Button
 } from 'react-bootstrap';
 import {useAppSelector} from '../hooks';
 
 const Navi=()=>{
   const auth = useAppSelector((state)=>state.auth);
-
+  const history = useHistory();
   const [open, setOpen] = useState(false);
 
   return (
@@ -22,15 +22,16 @@ const Navi=()=>{
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#">About</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
             <NavDropdown
               id="basic-nav-dropdown"
-              title="Type 1"
+              title="Type1"
               onMouseEnter={()=>{setOpen(true)}}
               onMouseLeave={()=>{setOpen(false)}}
+              onClick={()=>{history.push('/posts/Type1')}}
               show={open}>
-              <NavDropdown.Item href="#action/3.1">Subtype 1</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Subtype 2</NavDropdown.Item>
+              <NavDropdown.Item href="/posts/Type1.1">Type 1.1</NavDropdown.Item>
+              <NavDropdown.Item href="/posts/Type1.2">Type 1.2</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#">Type 2</Nav.Link>    
           </Nav>

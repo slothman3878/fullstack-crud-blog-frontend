@@ -5,7 +5,6 @@ import {
   Form,
   FormProps,
   Button,
-  ButtonGroup,
   InputGroup,
   Col,
   Row,
@@ -34,7 +33,7 @@ const DraftForm = ({body,setBody,title,setTitle,type,setType,slug,setSlug, ...fo
   useEffect(() => {
     setValidTitle(!dupTitle&&title.length>0&&title.length<256);
     setValidSlug(!dupSlug&&slug.length>0&&slug.length<=20);
-  }, [slug, title, body])
+  }, [slug, title, dupSlug, dupTitle])
 
   const [titleHover,setTitleHover] = useState(false);
   const [slugHover,setSlugHover] = useState(false);
@@ -45,7 +44,7 @@ const DraftForm = ({body,setBody,title,setTitle,type,setType,slug,setSlug, ...fo
     },
   })
 
-  const TitleExists = useQuery(POST_EXISTS, {
+  useQuery(POST_EXISTS, {
     variables: {
       input: {
         title
@@ -58,7 +57,7 @@ const DraftForm = ({body,setBody,title,setTitle,type,setType,slug,setSlug, ...fo
     },
   })
 
-  const SlugExists = useQuery(POST_EXISTS, {
+  useQuery(POST_EXISTS, {
     variables: {
       input: {
         slug: slug

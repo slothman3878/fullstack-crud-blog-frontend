@@ -25,6 +25,7 @@ export interface Type_type {
   __typename: "Type";
   id: string;
   name: string;
+  desc: string | null;
   suptype: Type_type_suptype | null;
   subtypes: Type_type_subtypes[];
 }

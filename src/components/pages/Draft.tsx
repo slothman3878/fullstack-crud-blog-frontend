@@ -1,5 +1,5 @@
 import React, {
-  useState, useEffect,
+  useState,
 } from "react";
 import { 
   Container,
@@ -12,9 +12,7 @@ import {
   useHistory,
 } from 'react-router-dom'
 import { useQuery, useMutation } from '@apollo/client';
-//import {useAppSelector} from '../../hooks';
 import { CREATE_POST } from '../../graphql/mutations/post.mutation';
-import { CreatePost } from '../../graphql/mutations/__generated__/CreatePost';
 import { SAVE_DRAFT } from '../../graphql/mutations/draft.mutation';
 import { DRAFT } from '../../graphql/queries/draft.query';
 import { Draft, Draft_draft } from '../../graphql/queries/__generated__/Draft';

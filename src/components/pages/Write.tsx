@@ -10,7 +10,7 @@ import {
 import { CREATE_DRAFT } from '../../graphql/mutations/draft.mutation';
 
 const Write=()=>{
-  const [createDraft,{loading, error, data}] = useMutation(CREATE_DRAFT);
+  const [createDraft,{error, data}] = useMutation(CREATE_DRAFT);
 
   useEffect(() => {
     const create_draft = async()=>{
