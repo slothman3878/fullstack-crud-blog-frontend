@@ -21,6 +21,16 @@ export const POST = gql`
   }
 `
 
+export const POSTS = gql`
+  query Posts($input: PostsQueryInput!, $limit: Float, $offset: Float){
+    posts(input: $input, limit: $limit, offset: $offset) {
+      id
+      slug
+      title
+    }
+  }
+`
+
 /// Check existence, and returns only unique parameters
 /// For checking whether post with given slug and title alrady exists
 export const POST_EXISTS = gql`

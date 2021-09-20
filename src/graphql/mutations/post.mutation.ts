@@ -1,14 +1,10 @@
 import {gql} from '@apollo/client'
 
 export const CREATE_POST = gql`
-  mutation CreatePost($draft_id: String!, $slug: String!) {
-    createPost(draft_id: $draft_id, slug: $slug) {
+  mutation CreatePost($draft_id: String!) {
+    createPost(draft_id: $draft_id) {
       id
-      title
       slug
-      type {
-        id
-      } 
     }
   }
 `

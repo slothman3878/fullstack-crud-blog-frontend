@@ -9,6 +9,7 @@
 
 export interface DraftMutationInput {
   title: string;
+  slug: string;
   body?: string | null;
   type: string;
 }
@@ -16,6 +17,10 @@ export interface DraftMutationInput {
 export interface DraftQueryInput {
   id?: string | null;
   title?: string | null;
+}
+
+export interface DraftsQueryInput {
+  type?: string | null;
 }
 
 export interface PostMutationInput {
@@ -29,6 +34,11 @@ export interface PostQueryInput {
   id?: string | null;
   slug?: string | null;
   title?: string | null;
+}
+
+export interface PostsQueryInput {
+  type?: string | null;
+  writer?: string | null;
 }
 
 export interface TypeMutationInput {

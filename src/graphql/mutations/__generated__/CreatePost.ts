@@ -7,17 +7,10 @@
 // GraphQL mutation operation: CreatePost
 // ====================================================
 
-export interface CreatePost_createPost_type {
-  __typename: "Type";
-  id: string;
-}
-
 export interface CreatePost_createPost {
   __typename: "Post";
   id: string;
-  title: string;
   slug: string;
-  type: CreatePost_createPost_type;
 }
 
 export interface CreatePost {
@@ -26,5 +19,4 @@ export interface CreatePost {
 
 export interface CreatePostVariables {
   draft_id: string;
-  slug: string;
 }

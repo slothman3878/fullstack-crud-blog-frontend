@@ -25,6 +25,7 @@ export interface Draft_draft {
   __typename: "Draft";
   id: string;
   title: string;
+  slug: string;
   body: string;
   type: Draft_draft_type | null;
   writer: Draft_draft_writer;

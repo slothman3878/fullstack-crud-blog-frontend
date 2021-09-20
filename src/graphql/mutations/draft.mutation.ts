@@ -13,6 +13,7 @@ export const SAVE_DRAFT = gql`
     saveDraft(input: $input, id: $id) {
       id
       title
+      slug
       type {
         id
       }      

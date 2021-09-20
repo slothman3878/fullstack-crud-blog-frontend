@@ -18,6 +18,7 @@ export interface SaveDraft_saveDraft {
   __typename: "Post";
   id: string;
   title: string;
+  slug: string;
   type: SaveDraft_saveDraft_type;
 }
 

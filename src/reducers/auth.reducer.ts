@@ -21,6 +21,7 @@ export default function auth(state: AuthState=new AuthState(), action: IAction) 
     case 'DELETE_CURRENT_USER':
       return {
         ...state,
+        loading: false,
         user: undefined
       }
     default:

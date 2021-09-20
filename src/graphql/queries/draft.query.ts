@@ -5,6 +5,7 @@ export const DRAFT = gql`
     draft(input: $input) {
       id
       title
+      slug
       body
       type {
         id
@@ -14,6 +15,17 @@ export const DRAFT = gql`
         id
         email
       }
+      createdAt
+      updatedAt
+    }
+  }
+`
+
+export const DRAFTS = gql`
+  query Drafts($input: DraftsQueryInput!, $limit: Float, $offset: Float) {
+    drafts(input: $input, limit: $limit, offset: $offset) {
+      id
+      title
       createdAt
       updatedAt
     }
